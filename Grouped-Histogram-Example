@@ -1,0 +1,11 @@
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("cotton.csv")
+  
+plt.hist(df[df["irrigation"]=="No"]["Yield"].reset_index(drop=True), alpha=0.6, label="Not Irrigated")
+plt.hist(df[df["irrigation"]=="Yes"]["Yield"].reset_index(drop=True), alpha=0.6, label="Irrigated")
+plt.legend(loc = "upper left") 
+plt.xlabel("Yield")
+plt.ylabel("Frequency", rotation=0, ha = "right")
+plt.title("Historgram of Yield by Irrigation Status")
+plt.show()
